@@ -440,7 +440,6 @@ ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Emplo
                           </Style>
                         </Textbox>
                         <ColSpan>3</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -597,7 +596,7 @@ ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Emplo
       <Width>8.59in</Width>
       <Page>
         <PageHeader>
-          <Height>0.82167in</Height>
+          <Height>0.63in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -610,7 +609,7 @@ ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Emplo
                     <TextRun>
                       <Value>Annual Sales Info Report</Value>
                       <Style>
-                        <FontSize>11pt</FontSize>
+                        <FontSize>20pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -619,44 +618,13 @@ ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Emplo
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Height>0.23833in</Height>
+              <Height>0.49666in</Height>
               <Width>8.5in</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox6">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Annual Sales Info</Value>
-                      <Style>
-                        <FontSize>16pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox6</rd:DefaultName>
-              <Top>0.30778in</Top>
-              <Height>0.45833in</Height>
-              <Width>6.12166in</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
+                <BackgroundColor>Gray</BackgroundColor>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
