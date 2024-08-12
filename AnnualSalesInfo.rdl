@@ -24,12 +24,21 @@
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>DataSource1</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@pYear">
+            <Value>=Parameters!pYear.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@pSalesperson">
+            <Value>=Parameters!pSalesperson.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
         <CommandText>SELECT fs.[City Key], dt.[Calendar Year] AS DeliveryYear,  cs.Customer AS CustomerName, [Primary Contact] AS PrimaryContact,  ct.City, ct.[State Province], es.Employee, sum(fs.[Total Excluding Tax]) AS 'Total Excluding tax'
 FROM Dimension.city ct
            INNER JOIN Fact.Sale fs on (ct.[City Key] = fs.[City Key])
 		   INNER JOIN Dimension.Date dt on (dt.Date = fs.[Delivery Date Key])
 		   INNER JOIN Dimension.Customer cs on (fs.[Bill To Customer Key] = cs.[Customer Key])
 		   INNER JOIN Dimension.Employee es on (fs.[Salesperson Key] = es.[Employee Key])
+WHERE dt.[Calendar Year]  in (@pYear) AND es.Employee in (@pSalesperson)
 GROUP BY fs.[City Key], dt.[Calendar Year],  cs.Customer, [Primary Contact],  ct.City, ct.[State Province], es.Employee
 ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Employee</CommandText>
       </Query>
@@ -68,6 +77,28 @@ ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Emplo
         </Field>
         <Field Name="CityState">
           <Value>=Fields!City.Value + ", " + Fields!State_Province.Value</Value>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSetYears">
+      <SharedDataSet>
+        <SharedDataSetReference>DataSetYears</SharedDataSetReference>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="Calendar_Year">
+          <DataField>Calendar_Year</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSetSalesPerson">
+      <SharedDataSet>
+        <SharedDataSetReference>SalesPerson</SharedDataSetReference>
+      </SharedDataSet>
+      <Fields>
+        <Field Name="SalesPersonName">
+          <DataField>SalesPersonName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
     </DataSet>
@@ -1131,10 +1162,47 @@ ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Emplo
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="pYear">
+      <DataType>String</DataType>
+      <Prompt>Year</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetYears</DataSetName>
+          <ValueField>Calendar_Year</ValueField>
+          <LabelField>Calendar_Year</LabelField>
+        </DataSetReference>
+      </ValidValues>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="pSalesperson">
+      <DataType>String</DataType>
+      <Prompt>SalesPerson</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>DataSetSalesPerson</DataSetName>
+          <ValueField>SalesPersonName</ValueField>
+          <LabelField>SalesPersonName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
       <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>pYear</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>pSalesperson</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
