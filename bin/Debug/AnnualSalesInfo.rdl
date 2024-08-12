@@ -1165,7 +1165,7 @@ ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Emplo
   <ReportParameters>
     <ReportParameter Name="pYear">
       <DataType>String</DataType>
-      <Prompt>Year</Prompt>
+      <Prompt>Sales Year</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>DataSetYears</DataSetName>
@@ -1177,7 +1177,7 @@ ORDER BY cs.Customer, ct.City, ct.[State Province], dt.[Calendar Year], es.Emplo
     </ReportParameter>
     <ReportParameter Name="pSalesperson">
       <DataType>String</DataType>
-      <Prompt>SalesPerson</Prompt>
+      <Prompt>Sales Person</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>DataSetSalesPerson</DataSetName>

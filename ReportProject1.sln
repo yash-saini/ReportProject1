@@ -17,6 +17,7 @@ Global
 		{473DDD94-1A1D-4F7F-8256-AB8C3D7A5F09}.Debug|Default.Deploy.0 = Debug
 		{473DDD94-1A1D-4F7F-8256-AB8C3D7A5F09}.DebugLocal|Default.ActiveCfg = DebugLocal
 		{473DDD94-1A1D-4F7F-8256-AB8C3D7A5F09}.DebugLocal|Default.Build.0 = DebugLocal
+		{473DDD94-1A1D-4F7F-8256-AB8C3D7A5F09}.DebugLocal|Default.Deploy.0 = DebugLocal
 		{473DDD94-1A1D-4F7F-8256-AB8C3D7A5F09}.Release|Default.ActiveCfg = Release
 		{473DDD94-1A1D-4F7F-8256-AB8C3D7A5F09}.Release|Default.Build.0 = Release
 		{473DDD94-1A1D-4F7F-8256-AB8C3D7A5F09}.Release|Default.Deploy.0 = Release
