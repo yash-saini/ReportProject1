@@ -1,0 +1,1 @@
+This project creates a simple SQL server based report. The dataset used is WideWorldImportersDW. The report demonstrates charts, tables and various other reporting functionalities.
